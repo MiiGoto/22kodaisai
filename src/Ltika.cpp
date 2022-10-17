@@ -3,26 +3,7 @@
 
 #include <std_msgs/Bool.h>
 
-class gpio{
-  //construct
-  public:
-  gpio();
-  
-  private:
-  int pi;
-  
-  void cb_LED(const std_msgs::Bool::ConstPtr &data);
-  ros::NodeHandle nh;
-  ros::Subscriber sub_led;
-};
-
-gpio::gpio(){
-  pi = pigpio_start(NULL,NULL);
-
-  sub_led = nh.subscribe("/led", 5, &gpio::cb_LED, this);
-}
-
-void gpio::cb_LED(const std_msgs::Bool::ConstPtr &data){
+void cb_LED(const std_msgs::Bool::ConstPtr &data){
   if(data->data == 1){
     gpio_write(pi,26,1);
   }else{
@@ -32,7 +13,9 @@ void gpio::cb_LED(const std_msgs::Bool::ConstPtr &data){
 
 int main(int argc, char** argv){
   ros::init(argc, argv, "gpio");
-  gpio gpio;
+  int pi = pigpio_start(NULL,NULL);
+  ros::NodeHandle nh;
+  ros::Subscriber sub_led=nh.subscribe("/led", 5, cb_LED);
   ros::spin();
   return 0;
 }
