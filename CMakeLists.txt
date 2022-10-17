@@ -208,3 +208,9 @@ add_executable(read_joy src/read_joy.cpp)
 target_link_libraries(read_joy
   ${catkin_LIBRARIES}
 )
+
+add_executable(Ltika src/Ltika.cpp)
+target_link_libraries(Ltika
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
