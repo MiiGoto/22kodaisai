@@ -2,6 +2,7 @@
 #include <pigpiod_if2.h>
 
 #include <std_msgs/Bool.h>
+int pi;
 
 int pi;
 
