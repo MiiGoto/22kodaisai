@@ -210,13 +210,19 @@ target_link_libraries(read_joy
 )
 
 ##Comment out when running on wsl
-#add_executable(Ltika src/Ltika.cpp)
-#target_link_libraries(Ltika
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+add_executable(Ltika src/Ltika.cpp)
+target_link_libraries(Ltika
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2led src/joy2led.cpp)
 target_link_libraries(joy2led
   ${catkin_LIBRARIES}
+)
+
+add_executable(pwm_test src/pwm_test.cpp)
+target_link_libraries(pwm_test
+  ${catkin_LIBRARIES}
+  pigpiod_if2
 )
