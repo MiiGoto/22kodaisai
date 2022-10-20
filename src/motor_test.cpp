@@ -5,7 +5,7 @@
 int pi,duty=0;
 
 void cb_Motor(const std_msgs::Int16::ConstPtr &data){
-  set_PWM_dutycycle(pi,16,abs(data.data));
+  set_PWM_dutycycle(pi,16,abs(data->data));
   if(data->data >0){
     gpio_write(pi,20,1);
   }else{

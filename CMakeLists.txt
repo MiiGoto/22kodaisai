@@ -209,26 +209,33 @@ target_link_libraries(read_joy
   ${catkin_LIBRARIES}
 )
 
-##Comment out when running on wsl
-#add_executable(Ltika src/Ltika.cpp)
-#target_link_libraries(Ltika
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+#Comment out when running on wsl
+add_executable(Ltika src/Ltika.cpp)
+target_link_libraries(Ltika
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2led src/joy2led.cpp)
 target_link_libraries(joy2led
   ${catkin_LIBRARIES}
 )
 
-##Comment out when running on wsl
-#add_executable(pwm_test src/pwm_test.cpp)
-#target_link_libraries(pwm_test
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+#Comment out when running on wsl
+add_executable(pwm_test src/pwm_test.cpp)
+target_link_libraries(pwm_test
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2motor src/joy2motor.cpp)
 target_link_libraries(joy2motor
   ${catkin_LIBRARIES}
+)
+
+#Comment out when running on wsl
+add_executable(motor_test src/motor_test.cpp)
+target_link_libraries(motor_test
+  ${catkin_LIBRARIES}
+  pigpiod_if2
 )
