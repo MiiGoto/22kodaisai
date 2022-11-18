@@ -210,11 +210,11 @@ target_link_libraries(read_joy
 )
 
 #Comment out when running on wsl
-#add_executable(Ltika src/Ltika.cpp)
-#target_link_libraries(Ltika
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+add_executable(Ltika src/Ltika.cpp)
+target_link_libraries(Ltika
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2led src/joy2led.cpp)
 target_link_libraries(joy2led
@@ -222,11 +222,11 @@ target_link_libraries(joy2led
 )
 
 #Comment out when running on wsl
-#add_executable(pwm_test src/pwm_test.cpp)
-#target_link_libraries(pwm_test
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+add_executable(pwm_test src/pwm_test.cpp)
+target_link_libraries(pwm_test
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2motor src/joy2motor.cpp)
 target_link_libraries(joy2motor
@@ -234,11 +234,11 @@ target_link_libraries(joy2motor
 )
 
 #Comment out when running on wsl
-#add_executable(motor_test src/motor_test.cpp)
-#target_link_libraries(motor_test
-#  ${catkin_LIBRARIES}
-#  pigpiod_if2
-#)
+add_executable(motor_test src/motor_test.cpp)
+target_link_libraries(motor_test
+  ${catkin_LIBRARIES}
+  pigpiod_if2
+)
 
 add_executable(joy2chassis src/joy2chassis.cpp)
 target_link_libraries(joy2chassis
@@ -248,4 +248,10 @@ target_link_libraries(joy2chassis
 add_executable(joy2cylinder src/joy2cylinder.cpp)
 target_link_libraries(joy2cylinder
   ${catkin_LIBRARIES}
+)
+
+add_executable(gpio src/gpio.cpp)
+target_link_libraries(gpio
+  ${catkin_LIBRARIES}
+  pigpiod_if2
 )
